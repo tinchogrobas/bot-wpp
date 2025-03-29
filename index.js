@@ -22,7 +22,8 @@ async function checkMessages() {
     if (newMessages.length > 0) {
         newMessages.forEach(msg => lastMessageIds.add(msg.id.id));
         for (const msg of newMessages) {
-            await client.sendMessage(targetChat.id._serialized, msg.body);
+            await client.sendMessage(targetChat.id._serialized, msg.body, { linkPreview: true });
+            console.log("Mensaje reenviado");
         }
     }
 }
